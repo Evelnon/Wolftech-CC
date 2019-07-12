@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Wolftech_CC.Src
+namespace Wolftech_CC_Logic.Src
 {
     public class News
     {

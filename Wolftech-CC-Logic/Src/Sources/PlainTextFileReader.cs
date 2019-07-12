@@ -2,37 +2,39 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Wolftech_CC.Src.ErrorHandling;
+using Wolftech_CC_Logic.Src.ErrorHandling;
 
-namespace Wolftech_CC.Src.Sources
+namespace Wolftech_CC_Logic.Src.Sources
 {
-    public class FileReader : IReader
+    public class PlainTextFileReader : IReader
     {
-        protected string[] words;
-        protected StringBuilder sb; 
+        //it could be an externil config file
+        private string pathLocation =  @"File\File.txt";
+        private string[] words;
+        private StringBuilder sb;
 
-        public FileReader()
+        public PlainTextFileReader()
         {
             sb = new StringBuilder();
+            
         }
-        public FileReader(StringBuilder sb)
+        public PlainTextFileReader(StringBuilder sb)
         {
             this.sb = sb;
         }
-        public FileReader(string[] words)
+        public PlainTextFileReader(string[] words) 
         {
             this.words = words;
         }
-        public FileReader(StringBuilder sb, string[] words)
+        public PlainTextFileReader(StringBuilder sb, string[] words)
         {
             this.words = words;
             this.sb = sb;
         }
-
 
         public string[] ReadFile()
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"File\File.txt");
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, pathLocation);
 
             if (File.Exists(path))
             {
@@ -75,11 +77,10 @@ namespace Wolftech_CC.Src.Sources
             return "\"" + text + "\"";
         }
 
-       
+
         public List<News> MapToObject()
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<List<News>>(sb.ToString());
         }
-        
     }
 }

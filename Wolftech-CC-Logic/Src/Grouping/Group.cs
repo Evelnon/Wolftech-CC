@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Wolftech_CC.Src.Counting;
+﻿using System.Collections.Generic;
+using Wolftech_CC_Logic.Src.Counting;
 
-namespace Wolftech_CC.Src.Grouping
+namespace Wolftech_CC_Logic.Src.Grouping
 {
     public class Group : IElementGrouping
     {

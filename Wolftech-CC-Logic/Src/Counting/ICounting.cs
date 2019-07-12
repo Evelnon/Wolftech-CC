@@ -1,6 +1,6 @@
 ﻿
 
-namespace Wolftech_CC.Src.Counting
+namespace Wolftech_CC_Logic.Src.Counting
 {
    public interface ICounting
     {

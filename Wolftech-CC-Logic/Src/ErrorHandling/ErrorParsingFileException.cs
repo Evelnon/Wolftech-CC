@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Wolftech_CC.Src.ErrorHandling
+namespace Wolftech_CC_Logic.Src.ErrorHandling
 {
     public class ErrorParsingFileException : Exception
     {

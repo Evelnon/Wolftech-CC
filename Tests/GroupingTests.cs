@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections.Generic;
-using Wolftech_CC.Src;
-using Wolftech_CC.Src.Counting;
-using Wolftech_CC.Src.Grouping;
-using Wolftech_CC.Src.Sources;
+using Wolftech_CC_Logic.Src;
+using Wolftech_CC_Logic.Src.Counting;
+using Wolftech_CC_Logic.Src.Grouping;
+using Wolftech_CC_Logic.Src.Sources;
 
 namespace Tests
 {
@@ -13,6 +13,7 @@ namespace Tests
     {
         Group group;
         List<News> newsList;
+        IReader iReader;
 
         [TestInitialize]
         public void TestInit()
@@ -47,9 +48,7 @@ namespace Tests
         public void GetGroupedJson_ReturnsString_Success()
         {
 
-            string jsonString = group.GetGroupedJson();
-            FileReader fr = new FileReader();
-
+            string jsonString = group.GetGroupedJson();  
             Assert.IsTrue(jsonString != string.Empty);
             List<News> outcomeList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<News>>(jsonString);
             Assert.AreEqual(outcomeList[0].Oid, newsList[0].Oid);

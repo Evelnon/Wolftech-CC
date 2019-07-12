@@ -2,9 +2,9 @@
 using Moq;
 using System.Collections.Generic;
 using System.Text;
-using Wolftech_CC.Src;
-using Wolftech_CC.Src.ErrorHandling;
-using Wolftech_CC.Src.Sources;
+using Wolftech_CC_Logic.Src;
+using Wolftech_CC_Logic.Src.ErrorHandling;
+using Wolftech_CC_Logic.Src.Sources;
 
 namespace Tests
 {
@@ -13,13 +13,13 @@ namespace Tests
     {
 
         private Mock<IReader> files = new Mock<IReader>();
-               
+        IReader reader;
        
         [TestMethod]
         public void FormatFile_MissingData_Error()
         {            
             string[] wordList = { "test,test1,test2" };
-            IReader reader = new FileReader(wordList);
+            reader = new FileReader(wordList, new PlainTextFileReader());
             Assert.ThrowsException<MissingHeaderOrDataException>(() => reader.FormatFile());            
         }
 
@@ -27,22 +27,21 @@ namespace Tests
         public void FormatFile_DataError_Error()
         {
             string[] wordList = { "test,,test1,test2", "0,0,0" };
-            IReader reader = new FileReader(wordList);
+            reader = new FileReader(wordList, new PlainTextFileReader());
             Assert.ThrowsException<ErrorParsingFileException>(() => reader.FormatFile());
         }
 
         [TestMethod]
         public void FormatFile_Success()
         {
-            IReader reader = GetStringBuildOutput();
+            reader = GetStringBuildOutput();
             Assert.IsTrue(reader.FormatFile().Length > 0);
         }
 
         [TestMethod]
         public void MapToObject_Success()
         {
-            IReader reader = GetStringBuildOutput();
-            
+            reader = GetStringBuildOutput();            
             List<News> newsList = reader.MapToObject();
             Assert.IsTrue(newsList.Count > 0);
         }
@@ -50,7 +49,7 @@ namespace Tests
         private IReader GetStringBuildOutput()
         {
             string[] wordList = { "test,test1,test2", "0,0,0" };
-            var reader = new FileReader(new StringBuilder(), wordList);
+            reader = new FileReader(new StringBuilder(), wordList, new PlainTextFileReader());
             reader.FormatFile();
             return reader;
         }

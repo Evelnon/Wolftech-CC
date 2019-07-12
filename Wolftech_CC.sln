@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolftech-CC", "Wolftech-CC\Wolftech-CC.csproj", "{9F03A095-692D-438C-A701-CFF7E9DFE766}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolftech-CC", "Wolftech-CC\Wolftech-CC.csproj", "{9F03A095-692D-438C-A701-CFF7E9DFE766}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{CF378710-C4B1-481C-8FDA-C5599ED6648B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{CF378710-C4B1-481C-8FDA-C5599ED6648B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolftech-CC-Logic", "Wolftech-CC-Logic\Wolftech-CC-Logic.csproj", "{601D7C78-015E-4BE2-85B7-22C41132C45D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CF378710-C4B1-481C-8FDA-C5599ED6648B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF378710-C4B1-481C-8FDA-C5599ED6648B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF378710-C4B1-481C-8FDA-C5599ED6648B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{601D7C78-015E-4BE2-85B7-22C41132C45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{601D7C78-015E-4BE2-85B7-22C41132C45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{601D7C78-015E-4BE2-85B7-22C41132C45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{601D7C78-015E-4BE2-85B7-22C41132C45D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

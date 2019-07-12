@@ -12,9 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="File\File.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\Wolftech-CC-Logic\Wolftech-CC-Logic.csproj" />
   </ItemGroup>
 
 </Project>

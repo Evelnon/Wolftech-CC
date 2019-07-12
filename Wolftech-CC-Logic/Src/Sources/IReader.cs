@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Wolftech_CC.Src.Sources
+namespace Wolftech_CC_Logic.Src.Sources
 {
 
     public interface IReader
