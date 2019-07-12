@@ -47,19 +47,26 @@ namespace Wolftech_CC.Src.Sources
         public StringBuilder FormatFile()
         {
             if (words.Length < 2) throw new MissingHeaderOrDataException();
-            string[] header = words[0].Split(',');
-            var line = string.Empty;
-            for(var x = 1; x < words.Length;x++)
+            try
             {
-                line = "{";
-                string[] item = words[x].Split(',');
-                for(var y = 0;y < item.Length;y++)
+                string[] header = words[0].Split(',');
+                var line = string.Empty;
+                for (var x = 1; x < words.Length; x++)
                 {
-                    line +=  AddBrackets(header[y]) + ":" + AddBrackets(item[y] == string.Empty ? "0" : item[y]) + ",";
+                    line = "{";
+                    string[] item = words[x].Split(',');
+                    for (var y = 0; y < item.Length; y++)
+                    {
+                        line += AddBrackets(header[y]) + ":" + AddBrackets(item[y] == string.Empty ? "0" : item[y]) + ",";
+                    }
+                    sb.Append(line.Remove(line.Length - 1, 1) + "},");
                 }
-                sb.Append(line.Remove(line.Length - 1, 1) + "},");                
+                sb = sb.Remove(sb.Length - 1, 1).Insert(0, "[").Insert(sb.Length, "]");
             }
-            sb = sb.Remove(sb.Length - 1, 1).Insert(0, "[").Insert(sb.Length, "]");
+            catch (Exception)
+            {
+                throw new ErrorParsingFileException();
+            }
             return sb;
         }
 
